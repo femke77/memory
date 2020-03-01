@@ -20,9 +20,6 @@ class App extends Component {
     this.setState({ images: images });
   }
 
-  restartGame = () => {
-    //logic to clear the score
-  }
 
   shuffleImages = () => {
     //logic to shuffle the images
@@ -34,30 +31,29 @@ class App extends Component {
     console.log("clicked")
     //first we check if the latest image id is in the clickedArr
     //and if it is, we end the game, else continue
-    if (this.state.clickedArr.includes(id)){
-      //end and reset game
-      this.setState({
-        message: "You guessed incorrectly!",
-        score: 0
+    if (this.state.clickedArr.includes(id)) {
+      //if new score > top score, update top score
+      this.setState(() => {
+        const topScore = this.state.topScore > this.state.score ? this.state.topScore : this.state.score;
+
+        return {
+          message: "You guessed incorrectly!",
+          score: 0,
+          topScore: topScore,
+          clickedArr: []
+        }
       });
     } else {
-        //add the id to the clickedArr and change the message
-        //if new score > top score, update top score
-        this.setState({
-        clickedArr: this.state.clickedArr.concat(id),
-        message: "You guessed correctly!"
-      });
-      //update the score
-      this.setState({ 
-        score: this.state.score + 1
-      })
-    }
-    
-    
+      //add the id to the clickedArr and change the message
 
-    //if not, continue, if it is, message the user, save top score, and restart 
-    //game
+      this.setState({
+        clickedArr: this.state.clickedArr.concat(id),
+        message: "You guessed correctly!",
+        score: this.state.score + 1
+      });
+    }
   }
+
 
   render() {
     return (
