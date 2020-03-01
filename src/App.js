@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Nav from "./components/Nav";
+import Jumbotron from "./components/Jumbotron";
+import { Container, Row, Col } from "./components/Grid";
+import imageLoader from "./components/Images/index";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+ 
+  state = {
+    images: [],
+    score: 0,
+    topScore: 0,
+    message: ""
+   }
+
+  componentDidMount = () => {
+    const images = imageLoader();
+    this.setState({ images: images });
+    
+  }
+
+  handleImgClick = () => {
+    console.log("clicked")
+  }
+
+  render(){
+    return (
+      <>
+      <Nav score={this.state.score} topScore={this.state.topScore} message={this.state.message}/>
+      <Jumbotron />
+        <Container>
+          <Row>
+        {this.state.images.map(cat => {
+          return (
+             <Col size="md-3" key={cat.id}>
+              <img src={cat.src} alt="cat face" onClick={this.handleImgClick}/>
+              
+
+             </Col>
+          )
+          
+           })}
+          </Row>
+        </Container>
+        </>
+    )
+  }
 }
 
 export default App;
