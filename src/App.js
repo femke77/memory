@@ -12,7 +12,7 @@ class App extends Component {
     clickedArr: [],
     score: 0,
     topScore: 0,
-    message: ""
+    message: "Click an image to begin play."
   }
 
   componentDidMount = () => {
@@ -30,10 +30,31 @@ class App extends Component {
     //forceUpdate
   }
 
-  handleImgClick = id => {
+  handleClick = id => {
     console.log("clicked")
-    //logic to determine if this image has already been clicked
-    //use a clicked array with the image id and then just check if latest is in array
+    //first we check if the latest image id is in the clickedArr
+    //and if it is, we end the game, else continue
+    if (this.state.clickedArr.includes(id)){
+      //end and reset game
+      this.setState({
+        message: "You guessed incorrectly!",
+        score: 0
+      });
+    } else {
+        //add the id to the clickedArr and change the message
+        //if new score > top score, update top score
+        this.setState({
+        clickedArr: this.state.clickedArr.concat(id),
+        message: "You guessed correctly!"
+      });
+      //update the score
+      this.setState({ 
+        score: this.state.score + 1
+      })
+    }
+    
+    
+
     //if not, continue, if it is, message the user, save top score, and restart 
     //game
   }
@@ -48,7 +69,7 @@ class App extends Component {
             {this.state.images.map(cat => {
               return (
                 <Col size="md-3" key={cat.id}>
-                  <img src={cat.src} alt="cat face" onClick={() => this.handleImgClick(cat.id)} />
+                  <img src={cat.src} alt="cat face" onClick={() => this.handleClick(cat.id)} />
                 </Col>
               );
             })}

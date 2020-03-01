@@ -3,7 +3,7 @@ import "./style.css";
 
 function Nav(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary text">
+    <nav className="navbar navbar-expand-lg bg-primary fixed-top text">
       <span className="navbar-brand text">
         Kitty-Kat Memory Game
       </span>
