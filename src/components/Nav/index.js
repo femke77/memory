@@ -7,16 +7,18 @@ function Nav(props) {
       <span className="navbar-brand text">
         Kitty-Kat Memory Game
       </span>
-      <span className="navbar-text mx-auto">
-       {props.message}
+      <span className="navbar-text mx-auto reg">
+       <span className={(props.message === "You guessed incorrectly!") ? 'wrong' : ''}>
+         {props.message}
+         </span>
      </span>
      
-      <span className="navbar-text ml-auto">
+      <span className="navbar-text ml-auto reg">
       Score: {props.score} | Top Score: {props.topScore}
      </span>
-     
-     
     </nav>
+
+  
   );
 }
 

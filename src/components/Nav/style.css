@@ -4,3 +4,12 @@
   font-weight: bold;
 }
 
+.reg {
+  font-weight: normal;
+}
+
+.wrong {
+  color: maroon;
+  font-weight: bold;
+}
+
