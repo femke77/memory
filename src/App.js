@@ -6,7 +6,7 @@ import { Container, Row, Col } from "./components/Grid";
 import imageLoader from "./utils/images";
 import "./App.css"
 
-class App extends Component {
+export default class App extends Component {
 
   state = {
     images: [],
@@ -88,4 +88,3 @@ class App extends Component {
   }
 }
 
-export default App;

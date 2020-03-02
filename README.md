@@ -4,7 +4,7 @@ Memory is a small React app, entirely frontend, that tests your memory with cute
 
 https://femke77.github.io/memory/
 
-![image](https://user-images.githubusercontent.com/23327932/75645263-0b6f0c00-5bfa-11ea-8a5e-df30afe2afb3.png)
+![image](https://user-images.githubusercontent.com/23327932/75655399-9cec7700-5c16-11ea-99a4-602a362e954c.png)
 
 
 ## Tech/Framework
