@@ -2,7 +2,7 @@
 import React from "react";
 import "./style.css"
 
-export function Footer() {
+export default function Footer() {
   return (
     <nav className="footer navbar navbar-expand-sm navbar-light">
       <i class="fa fa-paw fa-2x" aria-hidden="true"></i>
@@ -14,5 +14,5 @@ export function Footer() {
   );
 }
 
-export default Footer;
+
 

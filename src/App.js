@@ -4,7 +4,6 @@ import Jumbotron from "./components/Jumbotron";
 import Footer from "./components/Footer";
 import { Container, Row, Col } from "./components/Grid";
 import imageLoader from "./utils/images";
-
 import "./App.css"
 
 class App extends Component {
@@ -14,17 +13,22 @@ class App extends Component {
     clickedArr: [],
     score: 0,
     topScore: 0,
-    message: "Click an image to begin play."
-  }
+    message: "Click an image to begin play.",
+  };
 
   componentDidMount = () => {
     const images = imageLoader();
     this.setState({ images: images }, this.cb);
-  }
+  };
 
   cb = () => {
     this.shuffleImages();
-  }
+  };
+
+  toggleClass = () => {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+  };
 
   shuffleImages = () => {
     const temp = this.state.images;
@@ -33,10 +37,9 @@ class App extends Component {
       [temp[i], temp[j]] = [temp[j], temp[i]];
     }
     this.setState({ images: temp })
-  }
+  };
 
   handleClick = id => {
-    console.log("clicked")
     //first we check if the latest image id is in the clickedArr
     if (this.state.clickedArr.includes(id)) {
       //game over - if new score > top score, update top score. clear clickedArr
@@ -58,10 +61,10 @@ class App extends Component {
       });
       setTimeout(() => {
         this.setState({message: ""})
-      }, 1000)
+      }, 500)
     }
     this.shuffleImages();
-  }
+  };
 
   render() {
     return (

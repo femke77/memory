@@ -9,11 +9,10 @@ function Nav(props) {
         &nbsp; Kitty-Kat Memory Game
       </span>
       <span className="navbar-text mx-auto reg">
-        <span className={(props.message === "You guessed incorrectly!") ? 'wrong' : ''} >
+        <span className={(props.message === "You guessed incorrectly!") ? 'wrong' : null} >
           {props.message}
         </span>
       </span>
-
       <span className="navbar-text ml-auto reg">
         Score: {props.score} &nbsp; | &nbsp; Top Score: {props.topScore}
       </span>
