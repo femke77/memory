@@ -25,11 +25,6 @@ export default class App extends Component {
     this.shuffleImages();
   };
 
-  toggleClass = () => {
-    const currentState = this.state.active;
-    this.setState({ active: !currentState });
-  };
-
   shuffleImages = () => {
     const temp = this.state.images;
     for (let i = temp.length - 1; i > 0; i--) {
@@ -43,10 +38,11 @@ export default class App extends Component {
     //first we check if the latest image id is in the clickedArr
     if (this.state.clickedArr.includes(id)) {
       //game over - if new score > top score, update top score. clear clickedArr
+      const { score, topScore } = this.state;
       this.setState({
         message: "You guessed incorrectly!",
         score: 0,
-        topScore: this.state.topScore > this.state.score ? this.state.topScore : this.state.score,
+        topScore: topScore > score ? topScore : score,
         clickedArr: []
       });
       setTimeout(() => {
