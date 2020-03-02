@@ -1,3 +1,11 @@
+body {
+  padding-top: 60px;
+}
+
 img {
   border-radius: 20px;
+}
+
+@media screen and (max-width: 570px) {
+  body { padding-top: 150px; }
 }

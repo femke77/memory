@@ -1,5 +1,5 @@
 //this helper file assists with putting images into state directly without having to 
-//manually import each one and create an array in App.js
+//manually import each one and create the array in App.js
 
 const images = [
   {id: 1, src: `${process.env.PUBLIC_URL}/assets/cat1.jpg`},

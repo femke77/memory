@@ -36,15 +36,17 @@ class App extends Component {
   handleClick = id => {
     console.log("clicked")
     //first we check if the latest image id is in the clickedArr
-    //and if it is, we end the game, else continue
     if (this.state.clickedArr.includes(id)) {
-      //if new score > top score, update top score
+      //game over - if new score > top score, update top score. clear clickedArr
       this.setState({
         message: "You guessed incorrectly!",
         score: 0,
         topScore: this.state.topScore > this.state.score ? this.state.topScore : this.state.score,
         clickedArr: []
       });
+      setTimeout(() => {
+        this.setState({message: "Click an image to begin play"})
+      }, 3000)
     } else {
       //add the id to the clickedArr and update the score
       this.setState({
@@ -52,6 +54,9 @@ class App extends Component {
         message: "You guessed correctly!",
         score: this.state.score + 1
       });
+      setTimeout(() => {
+        this.setState({message: ""})
+      }, 1000)
     }
     this.shuffleImages();
   }
@@ -65,7 +70,7 @@ class App extends Component {
           <Row>
             {this.state.images.map(cat => {
               return (
-                <Col size="md-3" key={cat.id}>
+                <Col size="lg-3 sm-6 col-6" key={cat.id}>
                   <img src={cat.src} alt="cat face" onClick={() => this.handleClick(cat.id)} />
                 </Col>
               );
