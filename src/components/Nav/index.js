@@ -4,8 +4,9 @@ import "./style.css";
 function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg fixed-top text">
+      <i class="fa fa-paw fa-2x" aria-hidden="true"></i>
       <span className="navbar-brand text">
-        Kitty-Kat Memory Game
+        &nbsp; Kitty-Kat Memory Game
       </span>
       <span className="navbar-text mx-auto reg">
         <span className={(props.message === "You guessed incorrectly!") ? 'wrong' : ''} >
