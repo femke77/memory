@@ -50,7 +50,7 @@ class App extends Component {
         clickedArr: []
       });
       setTimeout(() => {
-        this.setState({message: "Click an image to begin play."})
+        this.setState({ message: "Click an image to begin play." })
       }, 3000)
     } else {
       //add the id to the clickedArr and update the score
@@ -60,7 +60,7 @@ class App extends Component {
         score: this.state.score + 1
       });
       setTimeout(() => {
-        this.setState({message: ""})
+        this.setState({ message: "" })
       }, 500)
     }
     this.shuffleImages();
