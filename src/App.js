@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
+import Footer from "./components/Footer";
 import { Container, Row, Col } from "./components/Grid";
 import imageLoader from "./utils/images";
+
 import "./App.css"
 
 class App extends Component {
@@ -77,6 +79,7 @@ class App extends Component {
             })}
           </Row>
         </Container>
+        <Footer />
       </>
     )
   }
